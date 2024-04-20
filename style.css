@@ -1,0 +1,505 @@
+/* Remove any default margin on padding that the browser applies */
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/* To ensure that our content occupies the entire screen */
+body {
+  min-height: 100vh;
+}
+/* ------------------------------------Main Page ------------------------- */
+
+nav {
+  padding-left: 20px; /* 左側內縮 20px */
+  padding-right: 20px; /* 右側內縮 20px */
+  padding-top: 20px; /* 左側內縮 20px */
+  padding-bottom: 20px; /* 右側內縮 20px */
+}
+
+nav ul {
+  width: 100%;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: flex-end; /* 將項目置於容器的最右側 */
+}
+
+nav ul li {
+  margin-left: 20px; /* 給予所有項目右邊間距 */
+}
+
+a {
+  text-decoration: none;
+}
+
+/* My Website */
+
+nav ul li:first-child {
+  margin-left: 0; /* 取消第一個項目的左邊間距 */
+  margin-right: auto; /* 將第一個項目推到左側，其他項目在右側填充空間 */
+  font-weight: bold;
+}
+
+/* 漢堡 */
+
+@media screen and (max-width: 600px) {
+  nav ul li:last-child {
+    display: block; /* 在螢幕寬度小於等於 600px 時顯示 */
+  }
+}
+
+@media screen and (min-width: 601px) {
+  nav ul li:last-child {
+    display: none; /* 在螢幕寬度大於 600px 時隱藏 */
+  }
+}
+
+/* Item 顯示 */
+@media screen and (max-width: 600px) {
+  .mainpage li:nth-child(n + 2):nth-child(-n + 5) {
+    display: none; /* 在螢幕寬度小於等於 600px 時隱藏 */
+  }
+}
+
+@media screen and (min-width: 601px) {
+  .mainpage li:nth-child(n + 2):nth-child(-n + 5) {
+    display: block; /* 在螢幕寬度大於 600px 時顯示 */
+  }
+}
+
+/* ------------------------------------Side Bar ------------------------- */
+
+@media screen and (max-width: 600px) {
+  .sidebar {
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    width: 250px;
+    z-index: 10;
+    background-color: white;
+    box-shadow: -10px 0 10px rgba(0, 0, 0, 0.1);
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding-top: 20px; /* Add padding on top */
+  }
+  .sidebar ul {
+    margin-top: auto; /* Align ul at the top of the sidebar */
+  }
+
+  .sidebar a {
+    text-decoration: none;
+  }
+
+  /* Add margin between menu items 項目間隔：40px*/
+  .sidebar li {
+    margin-bottom: 20px;
+    font-size: 20px; /* Set font size to 20px */
+  }
+  /* Add margin between menu items 項目間隔：40px*/
+  .sidebar li:first-child {
+    margin-left: 200px;
+    margin-right: 0;
+    font-weight: bold;
+  }
+}
+@media screen and (min-width: 601px) {
+  .sidebar {
+    display: none; /* Hide the sidebar if screen width is more than 600px */
+  }
+}
+/* --------------------------------Welcome------------------------ */
+
+.parentContainer {
+  position: relative;
+  text-align: center;
+  color: rgb(243, 238, 238);
+}
+
+.parentContainer img {
+  width: 100%; /* 讓圖片填滿父容器的寬度 */
+  height: auto; /* 讓圖片的高度自適應寬度的比例 */
+  max-height: 250px; /* 設置圖片的最大高度為250px */
+}
+
+.centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 40px;
+  font-weight: bold;
+}
+
+@media (min-width: 601px) and (max-width: 1200px) {
+  .centered {
+    font-size: 40px;
+    white-space: nowrap; /* 禁止文字換行 */
+  }
+}
+
+@media (min-width: 361px) and (max-width: 600px) {
+  .centered {
+    text-align: center; /* Center the text horizontally */
+    font-size: 40px;
+    white-space: nowrap; /* 禁止文字換行 */
+  }
+  /* 間隔距離20px */
+}
+
+/* -------------------------------------Small Boxes 總設定---------------------- */
+
+/* 如果改成grid 下去寫看看：對齊 */
+.container {
+  width: 90%; /* 主容器寬度為屏幕寬度的90% */
+  max-width: 1200px; /* 父容器最大寬度為 1200px */
+  margin: 20px auto; /* 上下 20px 的間距，水平置中 */
+  display: flex; /* 使用 flexbox 佈局 */
+  justify-content: space-between; /* 將小箱子均勻分佈 */
+  flex-wrap: wrap; /* 允許多行排列 */
+}
+
+.small-box {
+  width: auto;
+  height: 50px;
+  display: flex; /* 使用 flexbox 佈局 */
+  align-items: center; /* 垂直居中 */
+  gap: 20px; /* 列間距和行間距 */
+  background-color: rgb(227, 207, 248); /* 設定淺藍色背景色 */
+  font-size: 20px;
+}
+
+.small-box img {
+  width: 80px; /* 圖片寬度為 80px */
+  height: 50px; /* 圖片高度為 50px */
+  margin-right: 5px; /* 圖片右邊間距為 5px */
+}
+
+/* -----------------------------Small Boxes：當螢幕寬度介於 1200px 到 1920px 之間時----------------------------- */
+
+/* 當螢幕寬度介於 1200px 到 1920px 之間時 */
+@media (min-width: 1201px) {
+  .container {
+    width: 90%; /* 主容器寬度為屏幕寬度的90% */
+    max-width: 1200px; /* 父容器最大寬度為 1200px */
+    margin: 20px auto; /* 上下 20px 的間距，水平置中 */
+    display: grid; /* 使用 grid 佈局 */
+    grid-template-columns: repeat(
+      3,
+      calc((100% - 40px) / 3)
+    ); /* 分成三等份，之間間隔為20px */
+    gap: 20px; /* 列間距 */
+  }
+
+  /* 設定第一行的每個箱子寬度為父容器寬度的一半減去間隔 */
+  .small-box {
+    background-color: rgb(227, 207, 248); /* 設定淺藍色背景色 */
+  }
+}
+
+/* ----------------------------Small Boxes：當螢幕寬度介於 601px 到 1200px 之間時------------------------------ */
+
+/* 當螢幕寬度介於 601px 到 1200px 之間時 */
+@media (min-width: 601px) and (max-width: 1200px) {
+  .container {
+    flex-direction: row; /* 將小箱子重新排成一行 */
+    flex-wrap: wrap; /* 允許多行排列 */
+  }
+
+  /* 設定第一行的每個箱子寬度為父容器寬度的一半減去間隔 */
+  .container .small-box {
+    width: calc(50% - 10px); /* 小箱子寬度為父容器寬度的一半減去間隔 */
+    margin-right: 20px; /* 箱子之間的間隔 */
+    background-color: rgb(227, 207, 248); /* 設定淺藍色背景色 */
+  }
+
+  /* 設定第三個箱子的位置 */
+  .container .small-box:nth-child(3) {
+    margin-top: 20px; /* 上方間隔20px */
+  }
+
+  /* 確保最後一個箱子沒有右邊的間隔 */
+  .container .small-box:nth-child(2n) {
+    margin-right: 0;
+  }
+}
+
+/* 將第三個箱子移動到下一行並填滿父容器的背景色 */
+.container .small-box:nth-child(3) {
+  width: 100%; /* 第三個箱子寬度設置為100% */
+}
+
+/* 確保最後一個箱子沒有右邊的間隔 */
+.container .small-box:last-child {
+  margin-right: 0;
+}
+
+/* -------------------------Small Boxes：當螢幕寬度介於 360px 到 600px 之間時 ----------------------- */
+
+/* 當螢幕寬度介於 360px 到 600px 之間時 */
+@media (max-width: 600px) {
+  .container {
+    flex-direction: column; /* 將小箱子排成一列 */
+  }
+
+  .small-box {
+    width: calc(100%); /* 小箱子寬度為父容器寬度 */
+    margin-bottom: 10px; /* 箱子之間的垂直間隔 */
+    margin-top: 10px; /* 箱子上方的垂直間距 */
+    margin-right: auto; /* 將右邊間距設置為 auto，讓左右間距等比例 */
+    margin-left: auto; /* 將左邊間距設置為 auto，讓左右間距等比例 */
+  }
+
+  /* 確保最後一個箱子沒有下方的間隔 */
+  .container .small-box:last-child {
+    margin-bottom: 0;
+  }
+}
+/* 當螢幕寬度介於 360px 到 600px 之間時，將.container恢復為水平排列 */
+.container {
+  flex-direction: row;
+}
+
+/* --------------------------大箱子 Big Boxes：For screen width greater than 1200px---------- */
+
+/* For screen width greater than 1200px */
+@media screen and (min-width: 1201px) {
+  .grid-container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 20px auto; /* 水平置中 */
+    display: grid;
+    grid-template-columns: calc((100% - 40px) / 3) repeat(4, 1fr); /* 第一列佔據總寬度的二分之一，其他列均等分割剩餘的空間 */
+    gap: 20px; /* 列間距和行間距 */
+  }
+
+  /* 第一組 */
+  .box {
+    /* 設置背景圖像 */
+    background-image: url("./Taipei\ 101\ .jpeg");
+    /* 設置背景圖像大小 */
+    background-size: cover; /* 或者 'contain'，根據需要調整 */
+    background-position: center; /* Center the background image */
+    /* 其他樣式 */
+    height: 200px;
+    /* text位置位於img底部，所以應該把flex放在img裡面，看起來才會是text在底部  */
+    display: flex;
+    align-items: flex-end; /* Align items to the bottom */
+    overflow: hidden; /*important（增加）*/
+    position: relative; /* 將 .box 設置為相對定位（增加） */
+  }
+
+  /* 隱藏第十個之後的所有箱子 */
+  .box:nth-child(n + 11) {
+    display: none;
+  }
+
+  /* 文字設定：flex 控管文字置中 */
+  .box .box-text {
+    height: 50px;
+    background-color: rgba(249, 249, 249, 0.7);
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    font-size: 22px;
+    text-align: center; /* Horizontally center the text */
+    line-height: 50px; /* Vertically center the text */
+  }
+
+  .box .long-text {
+    height: 50px;
+    background-color: rgba(249, 249, 249, 0.7);
+    display: inline-block; /*inline-block, block 才可以使用省略字*/
+    width: 100%;
+    font-size: 22px;
+    text-align: center; /* Horizontally center the text */
+    line-height: 50px; /* Vertically center the text */
+    white-space: nowrap; /* 不換行 */
+    overflow: hidden; /* 隱藏超出框的部分 */
+    text-overflow: ellipsis; /* 顯示省略號 */
+    padding: 0px 10px;
+  }
+
+  /*-------------------------------Big Box Text 溢出置中的問題: 創建 long-text ----------------------------*/
+
+  /* 星星放在右上角 */
+  .box {
+    position: relative; /* 將父元素設置為相對定位 */
+  }
+
+  .star {
+    position: absolute; /* 將星星符號設置為絕對定位 */
+    top: 10px; /* 距離父元素頂部的距離 */
+    right: 10px; /* 距離父元素右側的距離 */
+    color: rgba(255, 217, 0, 0.8); /* 設置星星顏色 */
+    font-size: 20px; /* 調整星星的大小 */
+  }
+}
+
+.parent-container {
+  display: flex;
+  justify-content: center;
+}
+
+.load-more {
+  margin-top: 10px;
+  margin-bottom: 20px;
+  display: inline-block;
+  padding: 10px 28px;
+  border: 1px solid rgb(100, 100, 104);
+  color: rgb(20, 20, 21);
+  font-size: 10px;
+  background-color: #e6ddddb1;
+  cursor: pointer;
+}
+.load-more:hover {
+  background-color: rgb(38, 33, 44);
+  border-color: rgb(100, 100, 104);
+  color: rgb(255, 255, 255);
+}
+
+/* --------------------------大箱子 Big Boxes：For screen width between 601px and 1200px----------- */
+
+/*第一組 */
+/* For screen width between 601px and 1200px */
+@media screen and (min-width: 601px) and (max-width: 1200px) {
+  .grid-container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 20px auto; /* 水平置中 */
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 columns with equal width */
+    grid-template-rows: auto; /* 3 rows */
+    gap: 20px; /* Gap between grid items */
+  }
+
+  /* 盒子寬度設定：前面八個 */
+  /* Set the width of the first eight boxes */
+  .box:nth-child(-n + 8) {
+    width: auto; /* 變化1到8的寬度 */
+    height: 200px;
+  }
+  .box:nth-last-child(-n + 2) {
+    height: 200px; /* 设置箱子9和10的高度 */
+  }
+  /* 第二組: 從後面數回去*/
+
+  /* Set the 1st, 3rd, 5th, ... box to span two columns (left side of the screen) */
+  .box:nth-child(odd):not(:nth-last-child(n + 48)) {
+    grid-column-start: 1; /* Start from the first column */
+    grid-column-end: span 2; /* Span across two columns */
+  }
+
+  /* Set the 2nd, 4th, 6th, ... box to span two columns (right side of the screen) */
+  .box:nth-child(even):not(:nth-last-child(n + 48)) {
+    grid-column-start: 3; /* Start from the third column */
+    grid-column-end: span 2; /* Span across two columns */
+  }
+
+  /* 插入圖片：flex 控管文字盒子底部 */
+  .box {
+    /* 設置背景圖像 */
+    background-image: url("./flower.jpeg");
+    /* 設置背景圖像大小 */
+    background-size: cover; /* 或者 'contain'，根據需要調整 */
+    background-position: center; /* Center the background image */
+    /* 其他樣式 */
+    height: 200px;
+    /* text位置位於img底部，所以應該把flex放在img裡面，看起來才會是text在底部  */
+    display: flex;
+    align-items: flex-end; /* Align items to the bottom */
+  }
+  /* 文字設定：flex 控管文字置中 */
+  .box .box-text {
+    height: 50px;
+    background-color: rgba(249, 249, 249, 0.7);
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Horizontally center the text 垂直 */
+    align-items: center; /* Vertically center the text 水平 */
+    width: 100%;
+    font-size: 20px;
+  }
+  .box .long-text {
+    height: 50px;
+    background-color: rgba(249, 249, 249, 0.7);
+    display: inline-block; /*inline-block, block 才可以使用省略字*/
+    width: 100%;
+    font-size: 22px;
+    text-align: center; /* Horizontally center the text */
+    line-height: 50px; /* Vertically center the text */
+    white-space: wrap; /* 更改，才不會擠格子*/
+    overflow: hidden; /* 隱藏超出框的部分 */
+    text-overflow: ellipsis; /* 顯示省略號 */
+    padding: 0px 10px;
+  }
+  /* 星星放在右上角 */
+  .box {
+    position: relative; /* 將父元素設置為相對定位 */
+  }
+
+  .star {
+    position: absolute; /* 將星星符號設置為絕對定位 */
+    top: 10px; /* 距離父元素頂部的距離 */
+    right: 10px; /* 距離父元素右側的距離 */
+    color: rgba(255, 217, 0, 0.8); /* 設置星星顏色 */
+    font-size: 20px; /* 調整星星的大小 */
+  }
+}
+
+/* --------------------------大箱子 Big Boxes: /* For screen width less than 601px ----------- */
+
+/* For screen width less than 601px */
+@media screen and (max-width: 600px) {
+  .grid-container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 20px auto; /* 水平置中 */
+    display: grid;
+    grid-template-columns: 1fr; /* 1 column */
+    grid-template-rows: repeat(10, auto); /* 10 rows */
+    gap: 20px; /* Gap between grid items */
+  }
+  /* 插入圖片：flex 控管文字盒子底部 */
+  .box {
+    /* 設置背景圖像 */
+    background-image: url("./flower.jpeg");
+    /* 設置背景圖像大小 */
+    background-size: cover; /* 或者 'contain'，根據需要調整 */
+    background-position: center; /* Center the background image */
+    /* 其他樣式 */
+    height: 200px;
+    /* text位置位於img底部，所以應該把flex放在img裡面，看起來才會是text在底部  */
+    display: flex;
+    align-items: flex-end; /* Align items to the bottom */
+  }
+  /* 文字設定：flex 控管文字置中 */
+  .box .box-text {
+    height: 50px;
+    background-color: rgba(249, 249, 249, 0.7);
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Horizontally center the text 垂直 */
+    align-items: center; /* Vertically center the text 水平 */
+    width: 100%;
+    font-size: 20px;
+  }
+
+  /* -------------------------------------------星星放在右上角 ----------------------------*/
+  .box {
+    position: relative; /* 將父元素設置為相對定位 */
+  }
+
+  .star {
+    position: absolute; /* 將星星符號設置為絕對定位 */
+    top: 10px; /* 距離父元素頂部的距離 */
+    right: 10px; /* 距離父元素右側的距離 */
+    color: rgba(255, 217, 0, 0.8); /* 設置星星顏色 */
+    font-size: 20px; /* 調整星星的大小 */
+  }
+}

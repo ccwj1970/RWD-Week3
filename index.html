@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Week1-RWD Website</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <!------------------------------------------- 選單 --------------------------------->
+
+    <nav>
+      <ul class="mainpage">
+        <li><a href="#">My Website</a></li>
+        <li><a href="#">Item 1</a></li>
+        <li><a href="#">Item 2</a></li>
+        <li><a href="#">Item 3</a></li>
+        <li><a href="#">Item 4</a></li>
+        <li onclick="showSidebar()">
+          <a href="#"
+            ><svg
+              xmlns="http://www.w3.org/2000/svg"
+              height="20"
+              viewBox="0 -960 960 960"
+              width="24"
+            >
+              <path
+                d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"
+              /></svg
+          ></a>
+        </li>
+      </ul>
+      <ul class="sidebar">
+        <li onclick="hideSidebar()">
+          <a href="#"
+            ><svg
+              xmlns="http://www.w3.org/2000/svg"
+              height="24"
+              viewBox="0 -960 960 960"
+              width="24"
+            >
+              <path
+                d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"
+              /></svg
+          ></a>
+        </li>
+        <li><a href="#">Item 1</a></li>
+        <li><a href="#">Item 2</a></li>
+        <li><a href="#">Item 3</a></li>
+        <li><a href="#">Item 4</a></li>
+      </ul>
+    </nav>
+    <!-- 歡迎主頁 -->
+    <div class="parentContainer">
+      <img src="./Taipei 101 .jpeg" alt="wallpaper" />
+      <div class="centered">Welcome to MyHome</div>
+    </div>
+    <!---------------------------------------重點：Small Boxes 圖片取代-------------------------------->
+
+    <div class="container" id="smallbox">
+      <div class="small-box">
+        <img src="" id="imageURL1" />
+        <div id="name1">Promotion 1</div>
+      </div>
+      <div class="small-box">
+        <img src="" id="imageURL2" />
+        <div id="name2">Promotion 2</div>
+      </div>
+      <div class="small-box">
+        <img src="" id="imageURL3" />
+        <div id="name3">Promotion 3</div>
+      </div>
+    </div>
+
+    <!--------------------------------------重點：Big Boxes 圖片取代--------------------------------->
+
+    <div class="grid-container"></div>
+
+    <!-- Load More 標籤 -->
+
+    <div class="parent-container">
+      <div id="loadmore" class="load-more">Load More</div>
+    </div>
+    <script src="./task3.js"></script>
+  </body>
+</html>
